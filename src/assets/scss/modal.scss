@@ -1,6 +1,6 @@
 .modal{
   @include position(fixed);
-  z-index: 10;
+  z-index: 10; 
   transition: all .5s;
   .mask{
     @include position(fixed);
@@ -16,17 +16,17 @@
   &.slide-enter{
     top:-100%;
   }
-  .modal-dialog{
-    @include position(absolute,40%,50%,660px,auto);
+  .modal_dialog{
+    @include position(absolute,50%,50%,660px,auto);
     background-color: $colorG;
     transform:translate(-50%,-50%);
-    .modal-header{
+    .modal_header{
       height:60px;
       background-color: $colorJ;
       padding:0 25px;
       line-height: 60px;
       font-size:$fontI;
-      .icon-close{
+      .icon_close{
         @include positionImg(absolute,23px,25px,14px,14px,'/imgs/icon-close.png');
         transition: transform .3s;
         &:hover{
@@ -34,11 +34,11 @@
         }
       }
     }
-    .modal-body{
+    .modal_body{
       padding:42px 40px 54px;
       font-size:14px;
     }
-    .modal-footer{
+    .modal_footer{
       height: 82px;
       line-height: 82px;
       text-align: center;

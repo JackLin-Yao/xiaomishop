@@ -108,16 +108,18 @@
       </div>
     </div>
     <service-bar></service-bar>
-    <Modal
+    <modal
       title="提示信息"
       sureText="查看购物车"
       btnType="1"
       modalType="middle"
       :showModal="showModal"
+      @submit="goToCart"
+      @cancel="showModal=false"
     >
     <template v-slot:body>
     <p>商品添加成功</p>
-    </template></Modal>
+    </template></modal>
   </div>
 </template>
 <script>
@@ -225,7 +227,7 @@ export default {
         },
       ],
       phoneList: [],
-      // showModal: false,
+      showModal: false,
     }
   },
   mounted() {
@@ -245,6 +247,21 @@ export default {
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
         })
     },
+    addCart(){
+      this.showModal = true;
+        // this.axios.post('/carts',{
+        //   productId:id,
+        //   selected: true
+        // }).then((res)=>{
+        //   this.showModal = true;
+        //   this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
+        // }).catch(()=>{
+        //   this.showModal = true;
+        // });
+      },
+      goToCart(){
+        this.$router.push('/cart');
+      }
   },
 }
 </script>
